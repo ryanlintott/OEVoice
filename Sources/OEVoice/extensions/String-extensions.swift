@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 internal extension String {
     func droppingSuffix<S: StringProtocol>(_ string: S) -> String {
         guard self.hasSuffix(string) else { return String(self) }
