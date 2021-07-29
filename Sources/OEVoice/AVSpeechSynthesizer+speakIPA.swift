@@ -1,6 +1,6 @@
 //
-//  AVSpeechSynthesizer-IPASpeech-extension.swift
-//  Wordhord
+//  AVSpeechSynthesizer+speakIPA.swift
+//  OEVoice
 //
 //  Created by Ryan Lintott on 2020-07-28.
 //
@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 
 @available(iOS 10.0, *)
-extension AVSpeechSynthesizer {
+public extension AVSpeechSynthesizer {
     func speakIPA(_ ipaString: String, voiceIdentifier: String, willSpeak: ((String) -> Void)? = nil) {
         //Set the audio session to playback to ignore mute switch on device
         do {

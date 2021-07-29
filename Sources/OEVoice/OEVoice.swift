@@ -10,63 +10,37 @@ import AVFoundation
 
 @available(iOS 10.0, *)
 public enum OEVoice: CaseIterable {
-    // Default UK voices - Daniel
-    // Default UK siri voices - Martha, Arthur
-    // Default US voices - Fred, Samantha
-    // Default US siri voices - Nicky, Aaron
-    // Extra UK voices - Kate, Oliver, Serena
-    // Extra US voices - Alex, Allison, Ava, Nicky, Susan, Tom, Victoria
-    case siriMarthaGBcompact
-    case siriArthurGBcompact
-    case siriNickyUScompact
-    case siriAaronUScompact
-//    case siriMarthaGBpremium
-//    case siriArthurGBpremium
-//    case siriNickyUSpremium
-//    case siriAaronUSpremium
+    
+    // Default UK voice
     case danielGBcompact
     
+    // Default UK Siri voices (not available on macOS or simulator)
+    case siriMarthaGBcompact
+    case siriArthurGBcompact
+    
+    // Premium UK Siri voices (not on device by default and not available on macOS or simulator)
+//    case siriMarthaGBpremium
+//    case siriArthurGBpremium
+    
+    // Extra UK voices - Kate, Oliver, Serena (not on device by default)
+    
+    // Default US voices - Fred, Samantha
+    
+    // Default US Siri voices (not available on macOS or simulator)
+    case siriNickyUScompact
+    case siriAaronUScompact
+    
+    // Premium US Siri voices (not on device by default and not available on macOS or simulator)
+//    case siriNickyUSpremium
+//    case siriAaronUSpremium
+    
+    // Extra US voices - Alex, Allison, Ava, Nicky, Susan, Tom, Victoria (not on device by default)
+    
     #if targetEnvironment(simulator)
-    static let `default` = OEVoice.danielGBcompact
+    public static let `default` = OEVoice.danielGBcompact
     #else
-    static let `default` = OEVoice.siriNickyUScompact
+    public static let `default` = OEVoice.siriNickyUScompact
     #endif
-    
-    private var identifier: String {
-        let prefix = "com.apple.ttsbundle."
-        switch self {
-        case .siriMarthaGBcompact:
-            return prefix.appending("siri_Martha_en-GB_compact")
-        case .siriArthurGBcompact:
-            return prefix.appending("siri_Aurthur_en-GB_compact")
-        case .siriNickyUScompact:
-            return prefix.appending("siri_Nicky_en-US_compact")
-        case .siriAaronUScompact:
-            return prefix.appending("siri_Aaron_en-US_compact")
-        case .danielGBcompact:
-            return prefix.appending("Daniel-compact")
-        }
-    }
-    
-    private var legacyIdentifiers: [String] {
-        let prefix = "com.apple.ttsbundle."
-        switch self {
-        case .siriMarthaGBcompact:
-            return [prefix.appending("siri_female_en-GB_compact")]
-        case .siriArthurGBcompact:
-            return [prefix.appending("siri_male_en-GB_compact")]
-        case .siriNickyUScompact:
-            return [prefix.appending("siri_female_en-US_compact")]
-        case .siriAaronUScompact:
-            return [prefix.appending("siri_male_en-US_compact")]
-        default:
-            return []
-        }
-    }
-    
-    public var voice: AVSpeechSynthesisVoice? {
-        AVSpeechSynthesisVoice(identifier: identifier) ?? legacyIdentifiers.compactMap { AVSpeechSynthesisVoice(identifier: $0) }.first
-    }
     
     public func speak(_ ipaString: String, synthesizer: AVSpeechSynthesizer) {
         synthesizer.speakIPA(adjustIPAString(ipaString), voiceIdentifier: identifier)

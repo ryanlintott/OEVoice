@@ -1,6 +1,6 @@
 //
 //  SpecialCharacter.swift
-//  TextToSpeech
+//  OEVoice
 //
 //  Created by Ryan Lintott on 2021-06-23.
 //
