@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import AVFoundation
 
 @available(iOS 10.0, *)
 public enum OEVoice: CaseIterable {
@@ -41,10 +40,6 @@ public enum OEVoice: CaseIterable {
     #else
     public static let `default` = OEVoice.siriNickyUScompact
     #endif
-    
-    public func speak(_ ipaString: String, synthesizer: AVSpeechSynthesizer) {
-        synthesizer.speakIPA(adjustIPAString(ipaString), voiceIdentifier: identifier)
-    }
     
     public func adjustIPAString(_ string: String) -> String {
         let sharedChanges = string

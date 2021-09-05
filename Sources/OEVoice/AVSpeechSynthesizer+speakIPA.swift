@@ -5,19 +5,16 @@
 //  Created by Ryan Lintott on 2020-07-28.
 //
 
-import Foundation
 import AVFoundation
 
 @available(iOS 10.0, *)
 public extension AVSpeechSynthesizer {
-    func speakIPA(_ ipaString: String, voiceIdentifier: String, willSpeak: ((String) -> Void)? = nil) {
-        //Set the audio session to playback to ignore mute switch on device
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: [.interruptSpokenAudioAndMixWithOthers, .duckOthers])
-        } catch {
-            print("Error: \(error.localizedDescription)")
-        }
-        
+    /// Speaks an IPA string out loud
+    /// - Parameters:
+    ///   - ipaString: String using IPA notation
+    ///   - voiceIdentifier: Voice to use
+    ///   - willSpeak: Runs just before speech and includes exact string to be spoken.
+    func speakIPA(_ ipaString: String, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil) {
         let mutableAttributedString = NSMutableAttributedString(string: ipaString)
         
         let range = NSString(string: ipaString).range(of: ipaString)
@@ -26,7 +23,6 @@ public extension AVSpeechSynthesizer {
 
         let utterance = AVSpeechUtterance(attributedString: mutableAttributedString)
 
-        let voice = AVSpeechSynthesisVoice(identifier: voiceIdentifier)
         utterance.voice = voice
         
         // Pausing first is safer and may prevent bugs
@@ -34,7 +30,7 @@ public extension AVSpeechSynthesizer {
         self.stopSpeaking(at: .immediate)
         
         willSpeak?(utterance.speechString)
-        print("speakIPA: \(ipaString) voice: \(voice?.identifier ?? "?")")
+        print("speakIPA: \(ipaString) voice: \(voice.identifier)")
         
         self.speak(utterance)
     }
