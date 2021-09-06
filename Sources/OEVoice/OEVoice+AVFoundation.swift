@@ -49,6 +49,22 @@ public extension OEVoice {
         return legacyShortIdentifiers.map { Self.idPrefix.appending($0) }
     }
     
+    /// Init from AVSpeechSynthesisVoice
+    /// - Parameter voice: voice
+    init? (from voice: AVSpeechSynthesisVoice) {
+        guard let oeVoice = Self.allCases.first(where: { $0.voice == voice }) else {
+            return nil
+        }
+        self = oeVoice
+    }
+    
+    init? (from identifier: String) {
+        guard let oeVoice = Self.allCases.first(where: { $0.identifier == identifier }) ?? Self.allCases.first(where: { $0.legacyIdentifiers.contains(identifier) }) else {
+            return nil
+        }
+        self = oeVoice
+    }
+    
     var voice: AVSpeechSynthesisVoice? {
         if AVSpeechSynthesisVoice.speechVoices().contains(where: { $0.identifier == identifier }) {
             return AVSpeechSynthesisVoice(identifier: identifier)
@@ -58,14 +74,15 @@ public extension OEVoice {
         return nil
     }
     
-    func speak(_ ipaString: String, synthesizer: AVSpeechSynthesizer, willSpeak: ((String) -> Void)? = nil) throws {
-        try Self.speak(ipaString, voice: voice, synthesizer: synthesizer, willSpeak: willSpeak)
+    func speak(_ ipaString: String, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizer, willSpeak: ((String) -> Void)? = nil) throws {
+        try Self.speak(ipaString, oeVoice: self, applyAdjustments: applyAdjustments, synthesizer: synthesizer, willSpeak: willSpeak)
     }
     
-    static func speak(_ ipaString: String, voice: AVSpeechSynthesisVoice? = Self.default.voice, synthesizer: AVSpeechSynthesizer, willSpeak: ((String) -> Void)? = nil) throws {
-        guard let voice = voice else {
+    static func speak(_ ipaString: String, oeVoice: OEVoice = Self.default, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizer, willSpeak: ((String) -> Void)? = nil) throws {
+        guard let voice = oeVoice.voice else {
             throw OEVoiceErrors.voiceNotFound
         }
-        synthesizer.speakIPA(ipaString, voice: voice, willSpeak: willSpeak)
+        let stringToSpeak = applyAdjustments ? oeVoice.adjustIPAString(ipaString) : ipaString
+        synthesizer.speakIPA(stringToSpeak, voice: voice, willSpeak: willSpeak)
     }
 }
