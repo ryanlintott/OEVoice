@@ -58,10 +58,14 @@ public extension OEVoice {
         return nil
     }
     
-    func speak(_ ipaString: String, synthesizer: AVSpeechSynthesizer) throws {
+    func speak(_ ipaString: String, synthesizer: AVSpeechSynthesizer, willSpeak: ((String) -> Void)? = nil) throws {
+        try Self.speak(ipaString, voice: voice, synthesizer: synthesizer, willSpeak: willSpeak)
+    }
+    
+    static func speak(_ ipaString: String, voice: AVSpeechSynthesisVoice? = Self.default.voice, synthesizer: AVSpeechSynthesizer, willSpeak: ((String) -> Void)? = nil) throws {
         guard let voice = voice else {
             throw OEVoiceErrors.voiceNotFound
         }
-        synthesizer.speakIPA(adjustIPAString(ipaString), voice: voice)
+        synthesizer.speakIPA(ipaString, voice: voice, willSpeak: willSpeak)
     }
 }
