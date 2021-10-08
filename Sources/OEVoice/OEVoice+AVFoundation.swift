@@ -7,7 +7,6 @@
 
 import AVFoundation
 
-@available(iOS 10.0, *)
 public extension OEVoice {
     static let idPrefix = "com.apple.ttsbundle."
     

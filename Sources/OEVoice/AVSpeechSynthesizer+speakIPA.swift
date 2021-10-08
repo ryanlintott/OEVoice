@@ -7,7 +7,6 @@
 
 import AVFoundation
 
-@available(iOS 10.0, *)
 public extension AVSpeechSynthesizer {
     /// Speaks an IPA string out loud
     /// - Parameters:
@@ -20,6 +19,7 @@ public extension AVSpeechSynthesizer {
         let range = NSString(string: ipaString).range(of: ipaString)
         let pronunciationKey = NSAttributedString.Key(rawValue: AVSpeechSynthesisIPANotationAttribute)
         mutableAttributedString.setAttributes([pronunciationKey: ipaString], range: range)
+        print(mutableAttributedString.attributes(at: 0, longestEffectiveRange: nil, in: range))
 
         let utterance = AVSpeechUtterance(attributedString: mutableAttributedString)
 

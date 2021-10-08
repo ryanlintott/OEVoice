@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 10.0, *)
 public enum OEVoice: CaseIterable {
     
     // Default UK voice
