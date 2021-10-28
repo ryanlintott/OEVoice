@@ -27,11 +27,17 @@ public extension AVSpeechSynthesizer {
         
         // Pausing first is safer and may prevent bugs
         self.pauseSpeaking(at: .immediate)
+        // Stop speaking otherwise utterances with queue
         self.stopSpeaking(at: .immediate)
         
         willSpeak?(utterance.speechString)
         print("speakIPA: \(ipaString) voice: \(voice.identifier)")
         
         self.speak(utterance)
+    }
+    
+    func simplifiedTestSpeakIPA() {
+        // This should sound like "wath"
+        speakIPA("waːθ", voice: .init(identifier: "com.apple.ttsbundle.siri_Nicky_en-US_compact")!)
     }
 }
