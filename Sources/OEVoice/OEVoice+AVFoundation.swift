@@ -9,6 +9,8 @@ import AVFoundation
 
 public extension OEVoice {
     static let idPrefix = "com.apple.ttsbundle."
+    static let preferredLanguage = "en-US"
+    static let supportedLanguages = [preferredLanguage, "en-CA", "en-GB", "en-AU", "en-NZ", "en-SG"]
     
     var shortIdentifier: String {
         switch self {
@@ -73,14 +75,18 @@ public extension OEVoice {
         return nil
     }
     
-    func speak(_ ipaString: String, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizer, willSpeak: ((String) -> Void)? = nil) throws {
+    func speak(_ ipaString: String, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((String) -> Void)? = nil) throws {
         try Self.speak(ipaString, oeVoice: self, applyAdjustments: applyAdjustments, synthesizer: synthesizer, willSpeak: willSpeak)
     }
     
-    static func speak(_ ipaString: String, oeVoice: OEVoice = Self.default, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizer, willSpeak: ((String) -> Void)? = nil) throws {
+    static func speak(_ ipaString: String, oeVoice: OEVoice = Self.default, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizerIPA, force: Bool = false, willSpeak: ((String) -> Void)? = nil) throws {
         guard let voice = oeVoice.voice else {
-            throw OEVoiceErrors.voiceNotFound
+            throw OEVoiceError.voiceNotFound
         }
+        guard force || supportedLanguages.contains(where: { $0 == synthesizer.language }) else {
+            throw OEVoiceError.languageNotSupported
+        }
+        
         let stringToSpeak = applyAdjustments ? oeVoice.adjustIPAString(ipaString) : ipaString
         synthesizer.speakIPA(stringToSpeak, voice: voice, willSpeak: willSpeak)
     }
