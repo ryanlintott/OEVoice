@@ -83,7 +83,7 @@ public extension OEVoice {
         guard let voice = oeVoice.voice else {
             throw OEVoiceError.voiceNotFound
         }
-        guard force || supportedLanguages.contains(where: { $0 == synthesizer.language }) else {
+        guard force || supportedLanguages.contains(where: { $0 == synthesizer.language } ) else {
             throw OEVoiceError.languageNotSupported
         }
         

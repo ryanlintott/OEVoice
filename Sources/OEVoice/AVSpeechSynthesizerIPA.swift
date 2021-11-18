@@ -15,19 +15,25 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
         self.language = language
         let preferredLanguages = Locale.preferredLanguages
         
-        // Set first preferred language to one that is compatible before ContentView has been created
-        let preferredLanguagesKey = "AppleLanguages"
-        if language == preferredLanguages.first {
-            super.init()
-        } else {
+        super.init()
+        if language != preferredLanguages.first {
+            // Set first preferred language to one that is compatible before ContentView has been created
+            let preferredLanguagesKey = "AppleLanguages"
+            // Changing preferred language
             UserDefaults.standard.set([language], forKey: preferredLanguagesKey)
-            super.init()
+            // Force AVSpeechSynthesizer to speak.
+            // This most likely initializes some internal language setting that references the first preferredLanguage in UserDefaults.
+            speak(AVSpeechUtterance(string: ""))
+            stopSpeaking(at: .immediate)
+            
+            // change preferred languages back to previous backup
             UserDefaults.standard.set(preferredLanguages, forKey: preferredLanguagesKey)
         }
     }
     
     public convenience init?(preferredLanguages: [String]) {
         guard let language = preferredLanguages.first(where: { $0 == Locale.preferredLanguages.first }) ?? preferredLanguages.first else {
+            print("no preferred languages")
             return nil
         }
         self.init(language: language)

@@ -12,8 +12,13 @@ public extension AVSpeechSynthesizerIPA {
         AVSpeechSynthesizerIPA(preferredLanguages: OEVoice.supportedLanguages) ?? AVSpeechSynthesizerIPA(language: OEVoice.preferredLanguage)
     }
     
-    func simplifiedTestSpeakOE() {
+    func speakOETest1() {
         // This should sound like "wath"
         speakIPA("waːθ", voice: .init(identifier: "com.apple.ttsbundle.siri_Nicky_en-US_compact")!)
+    }
+    
+    func speakOETest2() {
+        // This should sound like "wath"
+        speakIPA("blɛnd", voice: .init(identifier: "com.apple.ttsbundle.siri_Nicky_en-US_compact")!)
     }
 }
