@@ -33,6 +33,6 @@ There are 3 options for initializing `AVSpeechSynthesizerIPA`
 ## Why must a language be provided?
 Somewhere in the internals of `AVspeechSynthesizer`'s `speak()` function, a language value is set the first time it's run. Instead of using the language supplied by `AVSpeechSynthesisVoice` used in `AVSpeechUtterance`, it accesses the user's preferred languages (probably via the UserDefaults key `AppleLanguages`. If the preferred language does not match the voice language, speech using IPA will not be at all accurate. Sounds will be mispronounced, some chatacters will be read as their character name instead of their sound, and some characters will be ignored.
 
-I have reported this as a bug. Ideally `speak()` would only use the language of the supplied voice each time it's run and would not need to reference the user's preferred langauges.
+I have reported this as a bug (FB9688443). Ideally `speak()` would only use the language of the supplied voice each time it's run and would not need to reference the user's preferred langauges.
 
 The init for `AVspeechSynthesizerIPA` ensures the pronunciations are accurate even on devices with incompatible primary languages. If the user's first preferred language is incompatible, their preferred languages in UserDefaults will temporarily be changed to the desired language, `speak()` is run on an empty string, and the languages are changed back again.
