@@ -30,8 +30,8 @@ internal extension String {
     }
 }
 
+@available(iOS 15, *)
 public extension String {
-    @available(iOS 15, *)
     /// Create an `AttributedString` with accessible Old English IPA pronunciation for specified phrases.
     /// WARNING: User voice may not match supported OEVoice so pronunciations may be incorrect
     /// WARNING: Does not work with these characters in the source: Āā Ǣǣ Ēē Īī Ōō Ūū Ȳȳ Ææ Ðð Þþ Ƿƿ
@@ -59,7 +59,6 @@ public extension String {
         return attributedString
     }
     
-    @available(iOS 15, *)
     /// Create an `AttributedString` with accessible Old English IPA pronunciation.
     /// WARNING: User voice may not match supported OEVoice so pronunciations may be incorrect
     /// WARNING: Does not work with these characters in the source: Āā Ǣǣ Ēē Īī Ōō Ūū Ȳȳ Ææ Ðð Þþ Ƿƿ
@@ -72,7 +71,6 @@ public extension String {
         if let ipa = ipa {
             // Ideally get the current user accessibility voice but for now use the default as its the only one working with Old English
             let voice = OEVoice.default
-//            let phonetic = "ga"
             let phonetic = voice.adjustIPAString(ipa)
             // this doesn't seem to do anything
             attributedString.languageIdentifier = "en-US"
@@ -84,5 +82,37 @@ public extension String {
         attributedString.accessibilityTextCustom = ["Old English"]
         
         return attributedString
+    }
+}
+
+public extension String {
+    func oldEnglishIPANSAttributedString(_ phrases: [String: String]) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        
+        let voice = OEVoice.default
+        let ipaKey = NSAttributedString.Key.accessibilitySpeechIPANotation
+        
+        phrases.forEach { (phrase, ipa) in
+            let range = attributedString.mutableString.range(of: phrase)
+            if range.length > 0 {
+                let phonetic = voice.adjustIPAString(ipa)
+                
+                attributedString.setAttributes([
+                    ipaKey: phonetic,
+                    .accessibilityTextCustom: ["Old English"],
+                    .accessibilitySpeechLanguage: "en-US"
+                ], range: range)
+            }
+        }
+        
+        return attributedString
+    }
+    
+    func oldEnglishIPANSAttributedString(_ ipa: String?) -> NSMutableAttributedString {
+        if let ipa = ipa {
+            return oldEnglishIPANSAttributedString([self: ipa])
+        } else {
+            return NSMutableAttributedString(string: self)
+        }
     }
 }
