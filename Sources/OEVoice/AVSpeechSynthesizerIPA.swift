@@ -13,9 +13,11 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
     
     public init(language: String) {
         self.language = language
-        let preferredLanguages = Locale.preferredLanguages
-        
         super.init()
+
+        guard !language.isEmpty else { return }
+        
+        let preferredLanguages = Locale.preferredLanguages
         if language != preferredLanguages.first {
             // Set first preferred language to one that is compatible before ContentView has been created
             let preferredLanguagesKey = "AppleLanguages"
@@ -31,11 +33,8 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
         }
     }
     
-    public convenience init?(preferredLanguages: [String]) {
-        guard let language = preferredLanguages.first(where: { $0 == Locale.preferredLanguages.first }) ?? preferredLanguages.first else {
-            print("no preferred languages")
-            return nil
-        }
+    public convenience init(preferredLanguages: [String]) {
+        let language = preferredLanguages.first(where: { $0 == Locale.preferredLanguages.first }) ?? preferredLanguages.first ?? ""
         self.init(language: language)
     }
     
