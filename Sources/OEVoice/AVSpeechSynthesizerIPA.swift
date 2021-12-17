@@ -64,4 +64,24 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
         print("speakIPA: \(ipaString), voice: \(voice.identifier), language: \(voice.language), AVLanguage: \(language), preferredLanguages: \(Locale.preferredLanguages)")
         speak(utterance)
     }
+    
+    @available(iOS 15, *)
+    public func speak(_ attributedString: AttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil) {
+        speak(NSMutableAttributedString(attributedString), voice: voice, willSpeak: willSpeak)
+    }
+    
+    public func speak(_ mutableAttributedString: NSMutableAttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil) {
+        mutableAttributedString.setSpeechIPAMatchingAccessibilityIPA()
+        
+        let utterance = AVSpeechUtterance(attributedString: mutableAttributedString)
+        utterance.voice = voice
+        
+        // Pausing first is safer and may prevent bugs
+        pauseSpeaking(at: .immediate)
+        // Stop speaking otherwise utterances with queue
+        stopSpeaking(at: .immediate)
+        
+        willSpeak?(utterance.speechString)
+        speak(utterance)
+    }
 }

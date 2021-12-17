@@ -9,7 +9,7 @@ import AVFoundation
 
 public extension AVSpeechSynthesizerIPA {
     static var oeVoiceSupported: AVSpeechSynthesizerIPA {
-        AVSpeechSynthesizerIPA(preferredLanguages: OEVoice.supportedLanguages) ?? AVSpeechSynthesizerIPA(language: OEVoice.preferredLanguage)
+        AVSpeechSynthesizerIPA(preferredLanguages: OEVoice.supportedLanguages)
     }
     
     func speakOETest1() {
