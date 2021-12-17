@@ -34,7 +34,7 @@ internal extension String {
 public extension String {
     /// Create an `AttributedString` with accessible Old English IPA pronunciation for specified phrases.
     /// WARNING: User voice may not match supported OEVoice so pronunciations may be incorrect
-    /// WARNING: Does not work with these characters in the source: Āā Ǣǣ Ēē Īī Ōō Ūū Ȳȳ Ææ Ðð Þþ Ƿƿ
+    /// WARNING: Does not work with these characters in the source: Ā Ǣǣ Ē Ī Ō Ū Ȳȳ Æ Ð Þ Ƿƿ
     /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
     /// - Returns: `AttributedString` with accessible Old Egnlish IPA pronunciations for specified phrases
     func oldEnglishIPAAttributed(_ phrases: [String: String]) -> AttributedString {
@@ -61,7 +61,7 @@ public extension String {
     
     /// Create an `AttributedString` with accessible Old English IPA pronunciation.
     /// WARNING: User voice may not match supported OEVoice so pronunciations may be incorrect
-    /// WARNING: Does not work with these characters in the source: Āā Ǣǣ Ēē Īī Ōō Ūū Ȳȳ Ææ Ðð Þþ Ƿƿ
+    /// WARNING: Does not work with these characters in the source: Ā Ǣǣ Ē Ī Ō Ū Ȳȳ Æ Ð Þ Ƿƿ
     /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
     /// - Returns: `AttributedString` with accessible Old Egnlish IPA pronunciations for specified phrases
     func oldEnglishIPAAttributed(_ ipa: String?) -> AttributedString {

@@ -41,6 +41,14 @@ public enum OEVoice: CaseIterable {
     #endif
     
     public func adjustIPAString(_ string: String) -> String {
+        string
+            .replacingOccurrences(of: SpecialCharacter.nonBreakingSpace, with: " ")
+            .split(separator: " ", omittingEmptySubsequences: true)
+            .map({ adjustIPAWord(String($0)) })
+            .joined(separator: " ")
+    }
+    
+    public func adjustIPAWord(_ string: String) -> String {
         let sharedChanges = string
             // Change all dash types into dots
             .replacingOccurrences(of: SpecialCharacter.enDash, with: ".")
