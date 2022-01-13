@@ -1,23 +1,38 @@
 # OEVoice
 
+![Platform iOS 14](https://img.shields.io/badge/platform-iOS%2014-blue.svg)
+[![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://github.com/apple/swift-package-manager)
+![License - MIT](https://img.shields.io/github/license/ryanlintott/OEVoice)
 ![Version](https://img.shields.io/github/v/tag/ryanlintott/OEVoice?label=version)
+![GitHub last commit](https://img.shields.io/github/last-commit/ryanlintott/OEVoice)
+[![Twitter](https://img.shields.io/badge/twitter-@ryanlintott-blue.svg?style=flat)](http://twitter.com/ryanlintott)
 
+# Overview
 AVSpeechSynthesis for Old English with IPA pronunciations.
 
-Used in the [Old English Wordhord app](https://oldenglishwordhord.com/app).
+# [OEVoiceExample](https://github.com/ryanlintott/OEVoiceExample)
+Check out the example app to see how you can use this package in your iOS app.
 
-## Example App
-Check out [OEVoiceExample](https://github.com/ryanlintott/OEVoiceExample) to see how to use this package in an iOS app.
-
-## Installation
-
+# Installation
 1. In XCode 12 go to `File -> Swift Packages -> Add Package Dependency` or in XCode 13 `File -> Add Packages`
-2. Paste in the repo's url: `https://github.com/ryanlintott/OEVoice` and select main branch or select by version.
+2. Paste in the repo's url: `https://github.com/ryanlintott/OEVoice` and select by version.
 
-## Usage
-
+# Usage
 Import the package using `import OEVoice`
 
+# Platforms
+This package is compatible with iOS 14 or later.
+
+# Is this Production-Ready?
+Really it's up to you. I currently use this package in my own [Old English Wordhord app](https://oldenglishwordhord.com/app).
+
+# Support
+If you like this package, buy me a coffee to say thanks!
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X7X04PU6T)
+
+- - -
+# Details
 Use
 `AVSpeechSynthesizerIPA`
 instead of
