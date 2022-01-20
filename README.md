@@ -1,4 +1,4 @@
-# OEVoice
+<img width="456" alt="OEVoice Logo" src="https://user-images.githubusercontent.com/2143656/150425538-49cbe98a-75de-4f23-8969-90d5b0784fb2.png"> 
 
 ![Platform iOS 14](https://img.shields.io/badge/platform-iOS%2014-blue.svg)
 [![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://github.com/apple/swift-package-manager)
