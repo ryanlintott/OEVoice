@@ -1,7 +1,7 @@
 <img height="128" alt="OEVoice Logo" src="https://user-images.githubusercontent.com/2143656/150425538-49cbe98a-75de-4f23-8969-90d5b0784fb2.png">
 
-![Platform iOS 14](https://img.shields.io/badge/platform-iOS%2014-blue.svg)
-[![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://github.com/apple/swift-package-manager)
+[![Swift Compatibility](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fryanlintott%2FOEVoice%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/ryanlintott/OEVoice)
+[![Platform Compatibility](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fryanlintott%2FOEVoice%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/ryanlintott/OEVoice)
 ![License - MIT](https://img.shields.io/github/license/ryanlintott/OEVoice)
 ![Version](https://img.shields.io/github/v/tag/ryanlintott/OEVoice?label=version)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ryanlintott/OEVoice)
