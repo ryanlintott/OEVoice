@@ -10,8 +10,8 @@
 # Overview
 AVSpeechSynthesis for Old English with IPA pronunciations.
 
-# [OEVoiceExample](https://github.com/ryanlintott/OEVoiceExample)
-Check out the example app to see how you can use this package in your iOS app.
+# OEVoiceExample
+Check out the [example app](https://github.com/ryanlintott/OEVoiceExample) to see how you can use this package in your iOS app.
 
 # Installation
 1. In XCode 12 go to `File -> Swift Packages -> Add Package Dependency` or in XCode 13 `File -> Add Packages`
