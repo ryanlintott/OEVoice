@@ -9,6 +9,22 @@ import Foundation
 
 @available(iOS 15, *)
 public extension AttributedString {
+    /// Adds accessible phonetic pronunciation for specified phrases.
+    /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
+    /// - Returns: `AttributedString` with accessible phonetic pronunciations for specified phrases
+    func addAccessibilitySpeechPhoneticNotation(_ phrases: [String: String], voice: OEVoice = .default) -> Self {
+        var attributedString = self
+        
+        phrases.forEach { phrase in
+            if let range = attributedString.range(of: phrase.key) {
+                let phonetic = phrase.value
+                // apply ipa pronunciation
+                attributedString[range].accessibilitySpeechPhoneticNotation = phonetic
+            }
+        }
+        return attributedString
+    }
+    
     /// Adds accessible Old English IPA pronunciation for specified phrases.
     /// WARNING: User voice may not match supported OEVoice so pronunciations may be incorrect
     /// WARNING: Does not work with these characters in the source: Ā Ǣǣ Ē Ī Ō Ū Ȳȳ Æ Ð Þ Ƿƿ
