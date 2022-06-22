@@ -1,4 +1,4 @@
-<img height="128" alt="OEVoice Logo" src="https://user-images.githubusercontent.com/2143656/150425538-49cbe98a-75de-4f23-8969-90d5b0784fb2.png">
+<img width="456" alt="OEVoice Logo" src="https://user-images.githubusercontent.com/2143656/150425538-49cbe98a-75de-4f23-8969-90d5b0784fb2.png">
 
 [![Swift Compatibility](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fryanlintott%2FOEVoice%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/ryanlintott/OEVoice)
 [![Platform Compatibility](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fryanlintott%2FOEVoice%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/ryanlintott/OEVoice)
@@ -10,11 +10,11 @@
 # Overview
 AVSpeechSynthesis for Old English with IPA pronunciations.
 
-# [OEVoiceExample](https://github.com/ryanlintott/OEVoiceExample)
-Check out the example app to see how you can use this package in your iOS app.
+# OEVoiceExample
+Check out the [example app](https://github.com/ryanlintott/OEVoiceExample) to see how you can use this package in your iOS app.
 
 # Installation
-1. In XCode 12 go to `File -> Swift Packages -> Add Package Dependency` or in XCode 13 `File -> Add Packages`
+1. In Xcode 13 `File -> Add Packages` or in Xcode 12 go to `File -> Swift Packages -> Add Package Dependency`
 2. Paste in the repo's url: `https://github.com/ryanlintott/OEVoice` and select by version.
 
 # Usage
