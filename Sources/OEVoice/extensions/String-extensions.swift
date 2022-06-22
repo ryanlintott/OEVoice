@@ -66,6 +66,16 @@ public extension String {
     /// Adds accessible phonetic pronunciation for specified phrases.
     /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
     /// - Returns: `AttributedString` with accessible phonetic pronunciations for specified phrases
-    func accessibilityIPA(_ phrases: [String: String], voice: OEVoice = .default) -> AttributedString { AttributedString(self).accessibilityIPA(phrases)
+    func accessibilityIPA(_ phrases: [String: String], voice: OEVoice = .default) -> AttributedString {
+        AttributedString(self).accessibilityIPA(phrases)
+    }
+    
+    /// Adds accessible Old English IPA pronunciation for specified phrases.
+    /// WARNING: User voice may not match supported OEVoice so pronunciations may be incorrect
+    /// WARNING: Does not work with these characters in the source: Ā Ǣǣ Ē Ī Ō Ū Ȳȳ Æ Ð Þ Ƿƿ
+    /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
+    /// - Returns: `AttributedString` with accessible Old Egnlish IPA pronunciations for specified phrases
+    func accessibilityOldEnglishIPA(_ phrases: [String: String], voice: OEVoice = .default) -> AttributedString {
+        AttributedString(self).accessibilityOldEnglishIPA(phrases, voice: voice)
     }
 }
