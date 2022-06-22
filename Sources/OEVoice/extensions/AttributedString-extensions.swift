@@ -12,7 +12,7 @@ public extension AttributedString {
     /// Adds accessible phonetic pronunciation for specified phrases.
     /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
     /// - Returns: `AttributedString` with accessible phonetic pronunciations for specified phrases
-    func addAccessibilitySpeechPhoneticNotation(_ phrases: [String: String], voice: OEVoice = .default) -> Self {
+    func accessibilityIPA(_ phrases: [String: String]) -> Self {
         var attributedString = self
         
         phrases.forEach { phrase in

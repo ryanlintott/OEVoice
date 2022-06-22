@@ -60,3 +60,12 @@ public extension String {
         NSMutableAttributedString(string: self).accessibilityOldEnglishIPA(ipa, voice: voice)
     }
 }
+
+@available(iOS 15, *)
+public extension String {
+    /// Adds accessible phonetic pronunciation for specified phrases.
+    /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
+    /// - Returns: `AttributedString` with accessible phonetic pronunciations for specified phrases
+    func accessibilityIPA(_ phrases: [String: String], voice: OEVoice = .default) -> AttributedString { AttributedString(self).accessibilityIPA(phrases)
+    }
+}
