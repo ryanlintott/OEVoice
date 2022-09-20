@@ -26,7 +26,7 @@ public extension NSMutableAttributedString {
                 attributedString.setAttributes([
                     ipaKey: phonetic,
                     .accessibilityTextCustom: ["Old English"],
-                    .accessibilitySpeechLanguage: "en-US"
+                    .accessibilitySpeechLanguage: OEVoice.preferredLanguage
                 ], range: range)
             }
         }
