@@ -5,6 +5,7 @@
 ![License - MIT](https://img.shields.io/github/license/ryanlintott/OEVoice)
 ![Version](https://img.shields.io/github/v/tag/ryanlintott/OEVoice?label=version)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ryanlintott/OEVoice)
+[![Mastodon](https://img.shields.io/badge/mastodon-@ryanlintott-5c4ee4.svg?style=flat)](http://mastodon.social/@ryanlintott)
 [![Twitter](https://img.shields.io/badge/twitter-@ryanlintott-blue.svg?style=flat)](http://twitter.com/ryanlintott)
 
 # Overview
@@ -14,7 +15,7 @@ AVSpeechSynthesis for Old English with IPA pronunciations.
 Check out the [example app](https://github.com/ryanlintott/OEVoiceExample) to see how you can use this package in your iOS app.
 
 # Installation
-1. In Xcode 13 `File -> Add Packages` or in Xcode 12 go to `File -> Swift Packages -> Add Package Dependency`
+1. In Xcode go to `File -> Add Packages`
 2. Paste in the repo's url: `https://github.com/ryanlintott/OEVoice` and select by version.
 
 # Usage
