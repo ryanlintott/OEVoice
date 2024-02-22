@@ -93,7 +93,7 @@ public enum OEVoice: CaseIterable {
             return sharedChanges
                 .replacingOccurrences(of: "sm", with: "s͡m")  // fixing bug: sounded like sh
                 
-                .replacingOccurrences(of: "æj", with: "æ͡ɪ")  // fixing bug: extra "ja" syllable
+                .replacingOccurrences(of: "æj", with: "æiː")  // fixing bug: extra "ja" syllable
                 .replacingOccurrences(of: "aj", with: "a")  // fixing bug: extra "ja" syllable
                 .replacingSuffixOccurrence(of: "ɪj", with: "iː")  // fixing bug: sounded like a "ye" at the end
                 .replacingOccurrences(of: "ɪj.", with: "iː.")  // fixing bug: sounded like a "ye" at the end
