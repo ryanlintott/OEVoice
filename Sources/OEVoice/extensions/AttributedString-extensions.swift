@@ -7,7 +7,7 @@
 
 import Foundation
 
-@available(iOS 15, *)
+@available(iOS 15, watchOS 8, tvOS 15, *)
 public extension AttributedString {
     /// Adds accessible phonetic pronunciation for specified phrases.
     /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases

@@ -30,7 +30,7 @@ internal extension String {
     }
 }
 
-@available(iOS 15, *)
+@available(iOS 15, watchOS 8, tvOS 15, *)
 public extension String {
     /// Create an `AttributedString` with accessible Old English IPA pronunciation for specified phrases.
     /// WARNING: User voice may not match supported OEVoice so pronunciations may be incorrect
@@ -61,7 +61,7 @@ public extension String {
     }
 }
 
-@available(iOS 15, *)
+@available(iOS 15, watchOS 8, tvOS 15, *)
 public extension String {
     /// Adds accessible phonetic pronunciation for specified phrases.
     /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases

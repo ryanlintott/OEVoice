@@ -65,7 +65,7 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
         speak(utterance)
     }
     
-    @available(iOS 15, *)
+    @available(iOS 15, watchOS 8, tvOS 15, *)
     public func speak(_ attributedString: AttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil) {
         speak(NSMutableAttributedString(attributedString), voice: voice, willSpeak: willSpeak)
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum OEVoice: CaseIterable {
+public enum OEVoice: CaseIterable, Sendable {
     
     // Default UK voice
     case danielGBcompact

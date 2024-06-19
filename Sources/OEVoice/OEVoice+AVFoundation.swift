@@ -92,7 +92,7 @@ public extension OEVoice {
     }
 }
 
-@available (iOS 15, *)
+@available(iOS 15, watchOS 8, tvOS 15, *)
 public extension OEVoice {
     func speak(_ attributedString: AttributedString, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((String) -> Void)? = nil) throws {
         try Self.speak(attributedString, oeVoice: self, synthesizer: synthesizer, willSpeak: willSpeak)
