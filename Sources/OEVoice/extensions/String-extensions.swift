@@ -1,12 +1,11 @@
 //
 //  String-extensions.swift
-//  Wordhord
+//  OEVoice
 //
 //  Created by Ryan Lintott on 2020-11-06.
 //
 
 import SwiftUI
-
 
 internal extension String {
     func droppingSuffix<S: StringProtocol>(_ string: S) -> String {
