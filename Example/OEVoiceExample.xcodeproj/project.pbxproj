@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF37C6532CB0DF340065E561 /* OEVoice in Frameworks */ = {isa = PBXBuildFile; productRef = CF37C6522CB0DF340065E561 /* OEVoice */; };
+		CFA34E112C6BC86F002A5881 /* View+IfAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA34E102C6BC86F002A5881 /* View+IfAvailable.swift */; };
+		CFADD5A426E6506D008F5170 /* TestWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADD5A126E6506D008F5170 /* TestWords.swift */; };
+		CFADD5A526E6506D008F5170 /* IPACharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADD5A226E6506D008F5170 /* IPACharacters.swift */; };
+		CFADD5A626E6506D008F5170 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADD5A326E6506D008F5170 /* ContentView.swift */; };
+		CFCC2A8726B32D2C007BCCAD /* OEVoiceExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC2A8626B32D2C007BCCAD /* OEVoiceExampleApp.swift */; };
+		CFCC2A8B26B32D2D007BCCAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCC2A8A26B32D2D007BCCAD /* Assets.xcassets */; };
+		CFCC2A8E26B32D2D007BCCAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCC2A8D26B32D2D007BCCAD /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CFA34E102C6BC86F002A5881 /* View+IfAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+IfAvailable.swift"; sourceTree = "<group>"; };
+		CFADD5A126E6506D008F5170 /* TestWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWords.swift; sourceTree = "<group>"; };
+		CFADD5A226E6506D008F5170 /* IPACharacters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPACharacters.swift; sourceTree = "<group>"; };
+		CFADD5A326E6506D008F5170 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CFCC2A8326B32D2C007BCCAD /* OEVoiceExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OEVoiceExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFCC2A8626B32D2C007BCCAD /* OEVoiceExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEVoiceExampleApp.swift; sourceTree = "<group>"; };
+		CFCC2A8A26B32D2D007BCCAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFCC2A8D26B32D2D007BCCAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFCC2A8026B32D2C007BCCAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF37C6532CB0DF340065E561 /* OEVoice in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFA34E0F2C6BC867002A5881 /* _Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CFA34E102C6BC86F002A5881 /* View+IfAvailable.swift */,
+			);
+			path = _Extensions;
+			sourceTree = "<group>";
+		};
+		CFCC2A7A26B32D2C007BCCAD = {
+			isa = PBXGroup;
+			children = (
+				CFCC2A8526B32D2C007BCCAD /* OEVoiceExample */,
+				CFCC2A8426B32D2C007BCCAD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFCC2A8426B32D2C007BCCAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFCC2A8326B32D2C007BCCAD /* OEVoiceExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFCC2A8526B32D2C007BCCAD /* OEVoiceExample */ = {
+			isa = PBXGroup;
+			children = (
+				CFA34E0F2C6BC867002A5881 /* _Extensions */,
+				CFCC2A8626B32D2C007BCCAD /* OEVoiceExampleApp.swift */,
+				CFADD5A326E6506D008F5170 /* ContentView.swift */,
+				CFADD5A226E6506D008F5170 /* IPACharacters.swift */,
+				CFADD5A126E6506D008F5170 /* TestWords.swift */,
+				CFCC2A8A26B32D2D007BCCAD /* Assets.xcassets */,
+				CFCC2A8C26B32D2D007BCCAD /* Preview Content */,
+			);
+			path = OEVoiceExample;
+			sourceTree = "<group>";
+		};
+		CFCC2A8C26B32D2D007BCCAD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CFCC2A8D26B32D2D007BCCAD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFCC2A8226B32D2C007BCCAD /* OEVoiceExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFCC2A9126B32D2D007BCCAD /* Build configuration list for PBXNativeTarget "OEVoiceExample" */;
+			buildPhases = (
+				CFCC2A7F26B32D2C007BCCAD /* Sources */,
+				CFCC2A8026B32D2C007BCCAD /* Frameworks */,
+				CFCC2A8126B32D2C007BCCAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OEVoiceExample;
+			packageProductDependencies = (
+				CF37C6522CB0DF340065E561 /* OEVoice */,
+			);
+			productName = OEVoiceExample;
+			productReference = CFCC2A8326B32D2C007BCCAD /* OEVoiceExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFCC2A7B26B32D2C007BCCAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					CFCC2A8226B32D2C007BCCAD = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = CFCC2A7E26B32D2C007BCCAD /* Build configuration list for PBXProject "OEVoiceExample" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFCC2A7A26B32D2C007BCCAD;
+			packageReferences = (
+				CF37C6512CB0DF340065E561 /* XCLocalSwiftPackageReference "../../OEVoice" */,
+			);
+			productRefGroup = CFCC2A8426B32D2C007BCCAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFCC2A8226B32D2C007BCCAD /* OEVoiceExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFCC2A8126B32D2C007BCCAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFCC2A8E26B32D2D007BCCAD /* Preview Assets.xcassets in Resources */,
+				CFCC2A8B26B32D2D007BCCAD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFCC2A7F26B32D2C007BCCAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFA34E112C6BC86F002A5881 /* View+IfAvailable.swift in Sources */,
+				CFCC2A8726B32D2C007BCCAD /* OEVoiceExampleApp.swift in Sources */,
+				CFADD5A426E6506D008F5170 /* TestWords.swift in Sources */,
+				CFADD5A626E6506D008F5170 /* ContentView.swift in Sources */,
+				CFADD5A526E6506D008F5170 /* IPACharacters.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CFCC2A8F26B32D2D007BCCAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OEVoice;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+			};
+			name = Debug;
+		};
+		CFCC2A9026B32D2D007BCCAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OEVoice;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFCC2A9226B32D2D007BCCAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"OEVoiceExample/Preview Content\"";
+				DEVELOPMENT_TEAM = 97423JQ8B9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OEVoice;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abetterwaytodo.OEVoiceExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Debug;
+		};
+		CFCC2A9326B32D2D007BCCAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"OEVoiceExample/Preview Content\"";
+				DEVELOPMENT_TEAM = 97423JQ8B9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OEVoice;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abetterwaytodo.OEVoiceExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFCC2A7E26B32D2C007BCCAD /* Build configuration list for PBXProject "OEVoiceExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFCC2A8F26B32D2D007BCCAD /* Debug */,
+				CFCC2A9026B32D2D007BCCAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFCC2A9126B32D2D007BCCAD /* Build configuration list for PBXNativeTarget "OEVoiceExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFCC2A9226B32D2D007BCCAD /* Debug */,
+				CFCC2A9326B32D2D007BCCAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		CF37C6512CB0DF340065E561 /* XCLocalSwiftPackageReference "../../OEVoice" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../OEVoice;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF37C6522CB0DF340065E561 /* OEVoice */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OEVoice;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = CFCC2A7B26B32D2C007BCCAD /* Project object */;
+}
