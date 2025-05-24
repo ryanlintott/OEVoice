@@ -14,12 +14,12 @@ AVSpeechSynthesis for Old English with IPA pronunciations.
 # Demo App
 The `Example` folder has an app that demonstrates the features of this package.
 
-# Installation
+# Installation and Usage
+This package is compatible with iOS 14+.
+
 1. In Xcode go to `File -> Add Packages`
 2. Paste in the repo's url: `https://github.com/ryanlintott/OEVoice` and select by version.
-
-# Usage
-Import the package using `import OEVoice`
+3. Import the package using `import OEVoice`
 
 # Platforms
 This package is compatible with iOS 14 or later.
@@ -27,8 +27,10 @@ This package is compatible with iOS 14 or later.
 # Is this Production-Ready?
 Really it's up to you. I currently use this package in my own [Old English Wordhord app](https://oldenglishwordhord.com/app).
 
+Additionally, if you find a bug or want a new feature add an issue and I will get back to you about it.
+
 # Support
-If you like this package, buy me a coffee to say thanks!
+OEVoice is open source and free but if you like using it, please consider supporting my work.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X7X04PU6T)
 

@@ -12,42 +12,43 @@ public extension OEVoice {
     static let preferredLanguage = "en-US"
     static let supportedLanguages = [preferredLanguage, "en-CA", "en-GB", "en-AU", "en-NZ", "en-SG"]
     
-    var shortIdentifier: String {
-        switch self {
-        case .siriMarthaGBcompact:
-            return "siri_Martha_en-GB_compact"
-        case .siriArthurGBcompact:
-            return "siri_Aurthur_en-GB_compact"
-        case .siriNickyUScompact:
-            return "siri_Nicky_en-US_compact"
-        case .siriAaronUScompact:
-            return "siri_Aaron_en-US_compact"
-        case .danielGBcompact:
-            return "Daniel-compact"
-        }
-    }
-    
-    var legacyShortIdentifiers: [String] {
-        switch self {
-        case .siriMarthaGBcompact:
-            return ["siri_female_en-GB_compact"]
-        case .siriArthurGBcompact:
-            return ["siri_male_en-GB_compact"]
-        case .siriNickyUScompact:
-            return ["siri_female_en-US_compact"]
-        case .siriAaronUScompact:
-            return ["siri_male_en-US_compact"]
-        default:
-            return []
-        }
-    }
-    
     var identifier: String {
-        return Self.idPrefix.appending(shortIdentifier)
+        switch self {
+        case .siriMarthaGBcompact: "com.apple.ttsbundle.siri_Martha_en-GB_compact"
+        case .siriArthurGBcompact: "com.apple.ttsbundle.siri_Aurthur_en-GB_compact"
+        case .siriNickyUScompact: "com.apple.ttsbundle.siri_Nicky_en-US_compact"
+        case .siriAaronUScompact: "com.apple.ttsbundle.siri_Aaron_en-US_compact"
+        case .danielGBcompact: "com.apple.ttsbundle.Daniel-compact"
+        }
     }
     
     var legacyIdentifiers: [String] {
-        return legacyShortIdentifiers.map { Self.idPrefix.appending($0) }
+        switch self {
+        case .siriMarthaGBcompact:
+            [
+                "com.apple.ttsbundle.siri_martha_en-GB_compact",
+                "com.apple.ttsbundle.siri_female_en-GB_compact",
+            ]
+        case .siriArthurGBcompact:
+            [
+                "com.apple.ttsbundle.siri_aurthur_en-GB_compact",
+                "com.apple.ttsbundle.siri_male_en-GB_compact",
+            ]
+        case .siriNickyUScompact:
+            [
+                "com.apple.ttsbundle.siri_nicky_en-US_compact",
+                "com.apple.ttsbundle.siri_female_en-US_compact",
+            ]
+        case .siriAaronUScompact:
+            [
+                "com.apple.ttsbundle.siri_aaron_en-US_compact",
+                "com.apple.ttsbundle.siri_male_en-US_compact",
+            ]
+        case .danielGBcompact:
+            [
+                "com.apple.voice.compact.en-GB.Daniel"
+            ]
+        }
     }
     
     /// Init from AVSpeechSynthesisVoice
