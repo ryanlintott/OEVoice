@@ -41,7 +41,7 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
     /// Speaks an IPA string out loud
     /// - Parameters:
     ///   - ipaString: String using IPA notation
-    ///   - voiceIdentifier: Voice to use
+    ///   - voice: Voice to use
     ///   - willSpeak: Runs just before speech and includes exact string to be spoken.
     public func speakIPA(_ ipaString: String, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil) {
         let mutableAttributedString = NSMutableAttributedString(string: ipaString)
@@ -65,7 +65,6 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
         speak(utterance)
     }
     
-    @available(iOS 15, watchOS 8, tvOS 15, *)
     public func speak(_ attributedString: AttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil) {
         speak(NSMutableAttributedString(attributedString), voice: voice, willSpeak: willSpeak)
     }

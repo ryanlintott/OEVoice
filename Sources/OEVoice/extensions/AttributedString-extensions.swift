@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 15, watchOS 8, tvOS 15, *)
 public extension AttributedString {
     /// Adds accessible phonetic pronunciation for specified phrases.
     /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
@@ -28,7 +27,9 @@ public extension AttributedString {
     /// Adds accessible Old English IPA pronunciation for specified phrases.
     /// WARNING: User voice may not match supported OEVoice so pronunciations may be incorrect
     /// WARNING: Does not work with these characters in the source: Ā Ǣǣ Ē Ī Ō Ū Ȳȳ Æ Ð Þ Ƿƿ
-    /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
+    /// - Parameters:
+    ///   - phrases: Dictionary of phrases and ipa pronunciations for those phrases
+    ///   - voice: Voice used to adjust the ipa pronunciations
     /// - Returns: `AttributedString` with accessible Old Egnlish IPA pronunciations for specified phrases
     func accessibilityOldEnglishIPA(_ phrases: [String: String], voice: OEVoice = .default) -> Self {
         var attributedString = self
@@ -51,7 +52,9 @@ public extension AttributedString {
     /// Adds an accessible Old English IPA pronunciation.
     /// WARNING: User voice may not match supported OEVoice so pronunciations may be incorrect
     /// WARNING: Does not work with these characters in the source: Ā Ǣǣ Ē Ī Ō Ū Ȳȳ Æ Ð Þ Ƿƿ
-    /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
+    /// - Parameters:
+    ///   - ipa: IPA pronunciation
+    ///   - voice: Voice used to adjust the ipa pronunciation
     /// - Returns: `AttributedString` with accessible Old Egnlish IPA pronunciations for specified phrases
     func accessibilityOldEnglishIPA(_ ipa: String?, voice: OEVoice = .default) -> Self {
         var attributedString = self
