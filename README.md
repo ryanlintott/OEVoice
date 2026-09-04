@@ -94,10 +94,10 @@ Text("The Old English Wordhord".oldEnglishIPAAttributed(["Wordhord": "ˈwɔɹd-�
 These pronunciations are read by the user's own VoiceOver voice, which may not be one of the supported `OEVoice` values, so the result may not be accurate. They also don't work with these characters in the source text: Ā Ǣǣ Ē Ī Ō Ū Ȳȳ Æ Ð Þ Ƿƿ
 
 ## Audio session
-`setSpeechSession()` configures an audio session to play on mute, pause other spoken audio, and duck everything else.
+`setSpeechSession()` configures an audio session to play on mute, pause other spoken audio, and duck everything else. It throws if the category can't be set.
 
 ```swift
-AVAudioSession.sharedInstance().setSpeechSession()
+try AVAudioSession.sharedInstance().setSpeechSession()
 ```
 
 ## Why must a language be provided?

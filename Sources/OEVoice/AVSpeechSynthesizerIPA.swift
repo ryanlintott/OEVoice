@@ -34,7 +34,8 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
     }
     
     public convenience init(preferredLanguages: [String]) {
-        let language = preferredLanguages.first(where: { $0 == Locale.preferredLanguages.first }) ?? preferredLanguages.first ?? ""
+        let firstLocalePreferredLanguage = Locale.preferredLanguages.first
+        let language = preferredLanguages.first(where: { $0 == firstLocalePreferredLanguage }) ?? preferredLanguages.first ?? ""
         self.init(language: language)
     }
     
@@ -70,9 +71,11 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
     }
     
     public func speak(_ mutableAttributedString: NSMutableAttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil) {
-        mutableAttributedString.setSpeechIPAMatchingAccessibilityIPA()
+        // Copied so speaking does not alter the string that was supplied
+        let stringToSpeak = NSMutableAttributedString(attributedString: mutableAttributedString)
+        stringToSpeak.setSpeechIPAMatchingAccessibilityIPA()
         
-        let utterance = AVSpeechUtterance(attributedString: mutableAttributedString)
+        let utterance = AVSpeechUtterance(attributedString: stringToSpeak)
         utterance.voice = voice
         
         // Pausing first is safer and may prevent bugs

@@ -6,6 +6,7 @@
 
 - Updated the package to Swift tools 6.0, which builds the package in the Swift 6 language mode.
 - Raised the minimum supported platforms to iOS 15, watchOS 9, and tvOS 15. visionOS remains at version 1.
+- `AVAudioSession.setSpeechSession()` now throws instead of printing and discarding the error. Existing calls need `try`.
 
 ### Added
 
@@ -13,19 +14,31 @@
 - Swift Package Index configuration for building and hosting the package's DocC documentation.
 - GitHub Actions workflow checking Swift 6.0 compatibility, running the tests, and building for iOS, tvOS, watchOS, and visionOS.
 - Shared `OEVoice` scheme for the package, and a shared `OEVoice.xcworkspace` with an `OEVoice Development` scheme for package and example-app development.
+- Swift Testing tests covering the phonetic notation applied by `accessibilityIPA(_:)` on `AttributedString` and `String`, including multiple occurrences of a phrase.
 - Changelog.
 - Link and badge in the readme pointing to the documentation on the Swift Package Index.
 
 ### Changed
 
+- Replaced the empty placeholder XCTest with Swift Testing suites.
 - Rewrote the readme to cover voices, the synthesizer, accessibility pronunciations, and the audio session helper.
 - Replaced the Twitter badge in the readme with Bluesky.
 - The example app now references the package at `..` rather than `../../OEVoice`, so it resolves from the workspace, and its deployment targets were raised to iOS 15 and tvOS 15.
 
 ### Fixed
 
+- Speaking an `NSMutableAttributedString` no longer alters the string that was passed in. `AVSpeechSynthesizerIPA.speak(_:voice:willSpeak:)` now works on a copy.
+- `setSpeechSession()` no longer silently swallows a failure to set the audio session category.
+- `setSpeechIPAMatchingAccessibilityIPA()` and `accessibilityOldEnglishIPA(_:voice:)` on `NSMutableAttributedString` now add their attributes rather than replacing every attribute in the range, so fonts, colours, and the accessibility IPA attributes are kept.
+- Phrase dictionaries now apply a pronunciation to every occurrence of a phrase rather than only the first. Affects `accessibilityIPA(_:)` and `accessibilityOldEnglishIPA(_:voice:)` on `AttributedString` and `String`, and `accessibilityOldEnglishIPA(_:voice:)` on `NSMutableAttributedString`.
+- `adjustIPAWord(_:)` now turns every dash character into a syllable dot. Previously only the en dash, hyphen-minus, and hyphen were converted, so a non-breaking hyphen, figure dash, em dash, or minus sign was left in the string and spoken as a character name.
+- Removed a duplicate entry from the internal list of dash characters.
 - Corrected the doc comments on `speakIPA(_:voice:willSpeak:)`, `accessibilityOldEnglishIPA(_:voice:)`, `oldEnglishIPAAttributed(_:voice:)`, and `accessibilityIPA(_:voice:)`, which named parameters those methods don't have and omitted others. The documentation now builds without warnings.
 - The readme described `AVSpeechSynthesizerIPA.oeSupported` and a failable `init?(languages:)`, neither of which exist. The API is `oeVoiceSupported` and `init(preferredLanguages:)`.
+
+### Performance
+
+- `OEVoice.voice` calls the expensive `AVSpeechSynthesisVoice.speechVoices()` once instead of twice, and `OEVoice.init?(from:)` for an `AVSpeechSynthesisVoice` matches on the voice identifier instead of resolving every case, which called `speechVoices()` up to ten times.
 
 ## 1.4.2 - 2025-05-23
 

@@ -51,10 +51,8 @@ public enum OEVoice: CaseIterable, Sendable {
     public func adjustIPAWord(_ string: String) -> String {
         let sharedChanges = string
             // Change all dash types into dots
-            .replacingOccurrences(of: SpecialCharacter.enDash, with: ".")
-            .replacingOccurrences(of: SpecialCharacter.hyphenMinus, with: ".")
-            .replacingOccurrences(of: SpecialCharacter.hyphen, with: ".")
-            
+            .replacingDashes(with: ".")
+        
             // Change all secondary emphasis to primary emphasis (secondary not supported)
             .replacingOccurrences(of: "ˌ", with: "ˈ")
         
@@ -74,7 +72,7 @@ public enum OEVoice: CaseIterable, Sendable {
             return sharedChanges
                 .replacingOccurrences(of: "ɔ", with: "ɑ")
                 .replacingOccurrences(of: "æj", with: "æ͡ɪ")
-                .replacingOccurrences(of: "rh", with: "ɹx")
+                .replacingOccurrences(of: "rx", with: "ɹx")
                 .replacingSuffixOccurrence(of: "ːr", with: "ːɹ")
                 .replacingOccurrences(of: "yl", with: "ɜ͡l")
                 .replacingOccurrences(of: "y", with: "ɜ")

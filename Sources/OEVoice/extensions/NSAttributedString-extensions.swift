@@ -8,6 +8,30 @@
 import AVFoundation
 import Foundation
 
+internal extension NSMutableAttributedString {
+    /// Ranges of every occurrence of a phrase.
+    /// - Parameter phrase: Phrase to find. An empty phrase returns no ranges.
+    /// - Returns: Range of each occurrence, in order.
+    func ranges(of phrase: String) -> [NSRange] {
+        guard !phrase.isEmpty else { return [] }
+        
+        var ranges: [NSRange] = []
+        var searchStart = 0
+        
+        while searchStart < length {
+            let searchRange = NSRange(location: searchStart, length: length - searchStart)
+            let range = mutableString.range(of: phrase, options: [], range: searchRange)
+            
+            guard range.location != NSNotFound else { break }
+            
+            ranges.append(range)
+            searchStart = range.location + range.length
+        }
+        
+        return ranges
+    }
+}
+
 public extension NSMutableAttributedString {
     func accessibilityOldEnglishIPA(_ phrases: [String: String], voice: OEVoice = .default) -> Self {
         guard self.length > 0 else {
@@ -19,11 +43,15 @@ public extension NSMutableAttributedString {
         let ipaKey = NSAttributedString.Key.accessibilitySpeechIPANotation
         
         phrases.forEach { (phrase, ipa) in
-            let range = attributedString.mutableString.range(of: phrase)
-            if range.length > 0 {
-                let phonetic = voice.adjustIPAString(ipa)
-                
-                attributedString.setAttributes([
+            let ranges = attributedString.ranges(of: phrase)
+            
+            guard !ranges.isEmpty else { return }
+            
+            let phonetic = voice.adjustIPAString(ipa)
+            
+            ranges.forEach { range in
+                // Added rather than set so any existing attributes are kept
+                attributedString.addAttributes([
                     ipaKey: phonetic,
                     .accessibilityTextCustom: ["Old English"],
                     .accessibilitySpeechLanguage: OEVoice.preferredLanguage
@@ -47,11 +75,18 @@ public extension NSMutableAttributedString {
         let accessibilityIPAKey = NSAttributedString.Key.accessibilitySpeechIPANotation
         let pronunciationIPAKey = NSAttributedString.Key(rawValue: AVSpeechSynthesisIPANotationAttribute)
         
+        // Ranges are collected first so the string is not modified while it's being enumerated
+        var pronunciations: [(value: Any, range: NSRange)] = []
+        
         enumerateAttributes(in: range) { values, range, stop in
             if let value = values[accessibilityIPAKey] {
-                // Modification of the same instance is allowed if it uses the current range
-                self.setAttributes([pronunciationIPAKey: value], range: range)
+                pronunciations.append((value, range))
             }
+        }
+        
+        pronunciations.forEach { pronunciation in
+            // Added rather than set so any existing attributes are kept
+            addAttributes([pronunciationIPAKey: pronunciation.value], range: pronunciation.range)
         }
     }
 }

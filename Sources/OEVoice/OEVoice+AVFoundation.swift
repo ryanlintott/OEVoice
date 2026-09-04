@@ -54,10 +54,7 @@ public extension OEVoice {
     /// Init from AVSpeechSynthesisVoice
     /// - Parameter voice: voice
     init? (from voice: AVSpeechSynthesisVoice) {
-        guard let oeVoice = Self.allCases.first(where: { $0.voice == voice }) else {
-            return nil
-        }
-        self = oeVoice
+        self.init(from: voice.identifier)
     }
     
     init? (from identifier: String) {
@@ -68,9 +65,12 @@ public extension OEVoice {
     }
     
     var voice: AVSpeechSynthesisVoice? {
-        if AVSpeechSynthesisVoice.speechVoices().contains(where: { $0.identifier == identifier }) {
+        // speechVoices() is expensive so it's only called once
+        let installedIdentifiers = AVSpeechSynthesisVoice.speechVoices().map(\.identifier)
+        
+        if installedIdentifiers.contains(identifier) {
             return AVSpeechSynthesisVoice(identifier: identifier)
-        } else if let legacyIdentifier = AVSpeechSynthesisVoice.speechVoices().map({ $0.identifier }).first(where: { legacyIdentifiers.contains($0) }) {
+        } else if let legacyIdentifier = installedIdentifiers.first(where: { legacyIdentifiers.contains($0) }) {
             return AVSpeechSynthesisVoice(identifier: legacyIdentifier)
         }
         return nil

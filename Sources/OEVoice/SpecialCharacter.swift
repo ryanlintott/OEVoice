@@ -26,20 +26,14 @@ internal struct SpecialCharacter {
     static let closingDoubleQuote = "\u{201D}"
     static let doubleQuotes = [openingDoubleQuote, closingDoubleQuote]
     
-    static let hyphens = [
+    /// All dashes, hyphens and the minus Sign
+    static let dashes = [
         Self.hyphen,
         Self.hyphenMinus,
-        Self.hyphen,
         Self.nonBreakingHyphen,
         Self.figureDash,
         Self.enDash,
         Self.emDash,
         Self.minusSign
     ]
-}
-
-internal extension Character {
-    var isHyphenFamily: Bool {
-        SpecialCharacter.hyphens.first(where: { $0 == String(self) }) != nil
-    }
 }

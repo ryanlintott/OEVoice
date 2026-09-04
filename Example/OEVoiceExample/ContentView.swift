@@ -181,7 +181,11 @@ struct ContentView: View {
         }
         .onAppear {
             voiceIdentifier = OEVoice.default.voice?.identifier ?? ""
-            AVAudioSession.sharedInstance().setSpeechSession()
+            do {
+                try AVAudioSession.sharedInstance().setSpeechSession()
+            } catch {
+                print(error)
+            }
         }
         .alert(isPresented: $isShowingError) {
             Alert(

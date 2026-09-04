@@ -7,6 +7,31 @@
 
 import Foundation
 
+internal extension AttributedString {
+    /// Applies an IPA pronunciation to every occurrence of a phrase.
+    /// - Parameters:
+    ///   - phonetic: IPA pronunciation applied to each occurrence.
+    ///   - phrase: Phrase to find. An empty phrase does nothing.
+    mutating func setPhoneticNotation(_ phonetic: String, forOccurrencesOf phrase: String) {
+        guard !phrase.isEmpty else { return }
+        
+        var searchOffset = 0
+        
+        while searchOffset < characters.count {
+            let searchStart = characters.index(characters.startIndex, offsetBy: searchOffset)
+            
+            guard let range = self[searchStart...].range(of: phrase) else { return }
+            
+            // Measured before the mutation as indices may not survive one
+            let nextOffset = characters.distance(from: characters.startIndex, to: range.upperBound)
+            
+            self[range].accessibilitySpeechPhoneticNotation = phonetic
+            
+            searchOffset = nextOffset
+        }
+    }
+}
+
 public extension AttributedString {
     /// Adds accessible phonetic pronunciation for specified phrases.
     /// - Parameter phrases: Dictionary of phrases and ipa pronunciations for those phrases
@@ -15,11 +40,9 @@ public extension AttributedString {
         var attributedString = self
         
         phrases.forEach { phrase in
-            if let range = attributedString.range(of: phrase.key) {
-                let phonetic = phrase.value
-                // apply ipa pronunciation
-                attributedString[range].accessibilitySpeechPhoneticNotation = phonetic
-            }
+            let phonetic = phrase.value
+            // apply ipa pronunciation
+            attributedString.setPhoneticNotation(phonetic, forOccurrencesOf: phrase.key)
         }
         return attributedString
     }
@@ -35,16 +58,14 @@ public extension AttributedString {
         var attributedString = self
         
         phrases.forEach { phrase in
-            if let range = attributedString.range(of: phrase.key) {
-                let phonetic = voice.adjustIPAString(phrase.value)
-                // this doesn't seem to do anything
-//                attributedString[range].languageIdentifier = "en-US"
-                // apply ipa pronunciation
-                attributedString[range].accessibilitySpeechPhoneticNotation = phonetic
-                
-                // This should add "Old English" as a VoiceOver announced attribute but it doesn't anounce anything with voice over
-//                attributedString[range].accessibilityTextCustom = ["Old English"]
-            }
+            let phonetic = voice.adjustIPAString(phrase.value)
+            // this doesn't seem to do anything
+//            attributedString[range].languageIdentifier = "en-US"
+            // apply ipa pronunciation
+            attributedString.setPhoneticNotation(phonetic, forOccurrencesOf: phrase.key)
+            
+            // This should add "Old English" as a VoiceOver announced attribute but it doesn't anounce anything with voice over
+//            attributedString[range].accessibilityTextCustom = ["Old English"]
         }
         return attributedString
     }
