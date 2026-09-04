@@ -3,30 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		CF37C6532CB0DF340065E561 /* OEVoice in Frameworks */ = {isa = PBXBuildFile; productRef = CF37C6522CB0DF340065E561 /* OEVoice */; };
-		CFA34E112C6BC86F002A5881 /* View+IfAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA34E102C6BC86F002A5881 /* View+IfAvailable.swift */; };
-		CFADD5A426E6506D008F5170 /* TestWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADD5A126E6506D008F5170 /* TestWords.swift */; };
-		CFADD5A526E6506D008F5170 /* IPACharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADD5A226E6506D008F5170 /* IPACharacters.swift */; };
-		CFADD5A626E6506D008F5170 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFADD5A326E6506D008F5170 /* ContentView.swift */; };
-		CFCC2A8726B32D2C007BCCAD /* OEVoiceExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC2A8626B32D2C007BCCAD /* OEVoiceExampleApp.swift */; };
-		CFCC2A8B26B32D2D007BCCAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCC2A8A26B32D2D007BCCAD /* Assets.xcassets */; };
-		CFCC2A8E26B32D2D007BCCAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCC2A8D26B32D2D007BCCAD /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CFA34E102C6BC86F002A5881 /* View+IfAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+IfAvailable.swift"; sourceTree = "<group>"; };
-		CFADD5A126E6506D008F5170 /* TestWords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestWords.swift; sourceTree = "<group>"; };
-		CFADD5A226E6506D008F5170 /* IPACharacters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPACharacters.swift; sourceTree = "<group>"; };
-		CFADD5A326E6506D008F5170 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CFCC2A8326B32D2C007BCCAD /* OEVoiceExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OEVoiceExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFCC2A8626B32D2C007BCCAD /* OEVoiceExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEVoiceExampleApp.swift; sourceTree = "<group>"; };
-		CFCC2A8A26B32D2D007BCCAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CFCC2A8D26B32D2D007BCCAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		CFD3F135304A460F00492261 /* OEVoiceExample */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = OEVoiceExample; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CFCC2A8026B32D2C007BCCAD /* Frameworks */ = {
@@ -40,18 +30,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CFA34E0F2C6BC867002A5881 /* _Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				CFA34E102C6BC86F002A5881 /* View+IfAvailable.swift */,
-			);
-			path = _Extensions;
-			sourceTree = "<group>";
-		};
 		CFCC2A7A26B32D2C007BCCAD = {
 			isa = PBXGroup;
 			children = (
-				CFCC2A8526B32D2C007BCCAD /* OEVoiceExample */,
+				CFD3F135304A460F00492261 /* OEVoiceExample */,
 				CFCC2A8426B32D2C007BCCAD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,28 +44,6 @@
 				CFCC2A8326B32D2C007BCCAD /* OEVoiceExample.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		CFCC2A8526B32D2C007BCCAD /* OEVoiceExample */ = {
-			isa = PBXGroup;
-			children = (
-				CFA34E0F2C6BC867002A5881 /* _Extensions */,
-				CFCC2A8626B32D2C007BCCAD /* OEVoiceExampleApp.swift */,
-				CFADD5A326E6506D008F5170 /* ContentView.swift */,
-				CFADD5A226E6506D008F5170 /* IPACharacters.swift */,
-				CFADD5A126E6506D008F5170 /* TestWords.swift */,
-				CFCC2A8A26B32D2D007BCCAD /* Assets.xcassets */,
-				CFCC2A8C26B32D2D007BCCAD /* Preview Content */,
-			);
-			path = OEVoiceExample;
-			sourceTree = "<group>";
-		};
-		CFCC2A8C26B32D2D007BCCAD /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				CFCC2A8D26B32D2D007BCCAD /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,6 +60,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				CFD3F135304A460F00492261 /* OEVoiceExample */,
 			);
 			name = OEVoiceExample;
 			packageProductDependencies = (
@@ -150,8 +113,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFCC2A8E26B32D2D007BCCAD /* Preview Assets.xcassets in Resources */,
-				CFCC2A8B26B32D2D007BCCAD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,11 +123,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFA34E112C6BC86F002A5881 /* View+IfAvailable.swift in Sources */,
-				CFCC2A8726B32D2C007BCCAD /* OEVoiceExampleApp.swift in Sources */,
-				CFADD5A426E6506D008F5170 /* TestWords.swift in Sources */,
-				CFADD5A626E6506D008F5170 /* ContentView.swift in Sources */,
-				CFADD5A526E6506D008F5170 /* IPACharacters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
