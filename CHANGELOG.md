@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- `willSpeak` closures now receive the `AVSpeechUtterance` about to be spoken instead of its speech string. The `speechString` property is still available on the utterance.
+
+### Deprecated
+
+- The `AVSpeechSynthesizerIPA` methods `speakIPA(_:voice:willSpeak:)` and `speak(_:voice:willSpeak:)`, and the `OEVoice` `speak` methods, taking a `(String) -> Void` closure. Use the `(AVSpeechUtterance) -> Void` versions.
+
 ## 2.0.0 - 2026-09-04
 
 ### Breaking Changes

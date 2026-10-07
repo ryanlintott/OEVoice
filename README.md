@@ -74,7 +74,7 @@ Voice identifiers changed in iOS 18.5. `OEVoice` looks for the current identifie
 Use `AVSpeechSynthesizerIPA` instead of `AVSpeechSynthesizer` to get access to:
 
 ```swift
-func speakIPA(_ ipaString: String, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil)
+func speakIPA(_ ipaString: String, voice: AVSpeechSynthesisVoice, willSpeak: ((AVSpeechUtterance) -> Void)? = nil)
 ```
 
 There are 3 options for initializing `AVSpeechSynthesizerIPA`

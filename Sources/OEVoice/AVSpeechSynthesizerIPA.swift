@@ -43,8 +43,8 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
     /// - Parameters:
     ///   - ipaString: String using IPA notation
     ///   - voice: Voice to use
-    ///   - willSpeak: Runs just before speech and includes exact string to be spoken.
-    public func speakIPA(_ ipaString: String, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil) {
+    ///   - willSpeak: Runs just before speech and includes the exact utterance to be spoken.
+    public func speakIPA(_ ipaString: String, voice: AVSpeechSynthesisVoice, willSpeak: ((AVSpeechUtterance) -> Void)? = nil) {
         let mutableAttributedString = NSMutableAttributedString(string: ipaString)
         
         let range = NSString(string: ipaString).range(of: ipaString)
@@ -61,16 +61,26 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
         // Stop speaking otherwise utterances with queue
         stopSpeaking(at: .immediate)
         
-        willSpeak?(utterance.speechString)
+        willSpeak?(utterance)
         print("speakIPA: \(ipaString), voice: \(voice.identifier), language: \(voice.language), AVLanguage: \(language), preferredLanguages: \(Locale.preferredLanguages)")
         speak(utterance)
     }
     
-    public func speak(_ attributedString: AttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil) {
+    @available(*, deprecated, message: "Use speakIPA(_:voice:willSpeak:) with a willSpeak closure that receives an AVSpeechUtterance.")
+    public func speakIPA(_ ipaString: String, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)?) {
+        speakIPA(ipaString, voice: voice) { willSpeak?($0.speechString) }
+    }
+    
+    public func speak(_ attributedString: AttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((AVSpeechUtterance) -> Void)? = nil) {
         speak(NSMutableAttributedString(attributedString), voice: voice, willSpeak: willSpeak)
     }
     
-    public func speak(_ mutableAttributedString: NSMutableAttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)? = nil) {
+    @available(*, deprecated, message: "Use speak(_:voice:willSpeak:) with a willSpeak closure that receives an AVSpeechUtterance.")
+    public func speak(_ attributedString: AttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)?) {
+        speak(attributedString, voice: voice) { willSpeak?($0.speechString) }
+    }
+    
+    public func speak(_ mutableAttributedString: NSMutableAttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((AVSpeechUtterance) -> Void)? = nil) {
         // Copied so speaking does not alter the string that was supplied
         let stringToSpeak = NSMutableAttributedString(attributedString: mutableAttributedString)
         stringToSpeak.setSpeechIPAMatchingAccessibilityIPA()
@@ -83,7 +93,12 @@ public class AVSpeechSynthesizerIPA: AVSpeechSynthesizer {
         // Stop speaking otherwise utterances with queue
         stopSpeaking(at: .immediate)
         
-        willSpeak?(utterance.speechString)
+        willSpeak?(utterance)
         speak(utterance)
+    }
+    
+    @available(*, deprecated, message: "Use speak(_:voice:willSpeak:) with a willSpeak closure that receives an AVSpeechUtterance.")
+    public func speak(_ mutableAttributedString: NSMutableAttributedString, voice: AVSpeechSynthesisVoice, willSpeak: ((String) -> Void)?) {
+        speak(mutableAttributedString, voice: voice) { willSpeak?($0.speechString) }
     }
 }

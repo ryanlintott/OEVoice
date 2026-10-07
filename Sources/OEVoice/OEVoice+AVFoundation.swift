@@ -76,11 +76,11 @@ public extension OEVoice {
         return nil
     }
     
-    func speak(_ ipaString: String, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((String) -> Void)? = nil) throws {
+    func speak(_ ipaString: String, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((AVSpeechUtterance) -> Void)? = nil) throws {
         try Self.speak(ipaString, oeVoice: self, applyAdjustments: applyAdjustments, synthesizer: synthesizer, willSpeak: willSpeak)
     }
     
-    static func speak(_ ipaString: String, oeVoice: OEVoice = .default, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizerIPA, force: Bool = false, willSpeak: ((String) -> Void)? = nil) throws {
+    static func speak(_ ipaString: String, oeVoice: OEVoice = .default, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizerIPA, force: Bool = false, willSpeak: ((AVSpeechUtterance) -> Void)? = nil) throws {
         guard let voice = oeVoice.voice else {
             throw OEVoiceError.voiceNotFound
         }
@@ -91,14 +91,24 @@ public extension OEVoice {
         let stringToSpeak = applyAdjustments ? oeVoice.adjustIPAString(ipaString) : ipaString
         synthesizer.speakIPA(stringToSpeak, voice: voice, willSpeak: willSpeak)
     }
+    
+    @available(*, deprecated, message: "Use speak(_:applyAdjustments:synthesizer:willSpeak:) with a willSpeak closure that receives an AVSpeechUtterance.")
+    func speak(_ ipaString: String, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((String) -> Void)?) throws {
+        try Self.speak(ipaString, oeVoice: self, applyAdjustments: applyAdjustments, synthesizer: synthesizer, willSpeak: willSpeak)
+    }
+    
+    @available(*, deprecated, message: "Use speak(_:oeVoice:applyAdjustments:synthesizer:force:willSpeak:) with a willSpeak closure that receives an AVSpeechUtterance.")
+    static func speak(_ ipaString: String, oeVoice: OEVoice = .default, applyAdjustments: Bool = true, synthesizer: AVSpeechSynthesizerIPA, force: Bool = false, willSpeak: ((String) -> Void)?) throws {
+        try speak(ipaString, oeVoice: oeVoice, applyAdjustments: applyAdjustments, synthesizer: synthesizer, force: force) { willSpeak?($0.speechString) }
+    }
 }
 
 public extension OEVoice {
-    func speak(_ attributedString: AttributedString, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((String) -> Void)? = nil) throws {
+    func speak(_ attributedString: AttributedString, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((AVSpeechUtterance) -> Void)? = nil) throws {
         try Self.speak(attributedString, oeVoice: self, synthesizer: synthesizer, willSpeak: willSpeak)
     }
     
-    static func speak(_ attributedString: AttributedString, oeVoice: OEVoice = .default, synthesizer: AVSpeechSynthesizerIPA, force: Bool = false, willSpeak: ((String) -> Void)? = nil) throws {
+    static func speak(_ attributedString: AttributedString, oeVoice: OEVoice = .default, synthesizer: AVSpeechSynthesizerIPA, force: Bool = false, willSpeak: ((AVSpeechUtterance) -> Void)? = nil) throws {
         guard let voice = oeVoice.voice else {
             throw OEVoiceError.voiceNotFound
         }
@@ -108,14 +118,24 @@ public extension OEVoice {
         
         synthesizer.speak(attributedString, voice: voice, willSpeak: willSpeak)
     }
+    
+    @available(*, deprecated, message: "Use speak(_:synthesizer:willSpeak:) with a willSpeak closure that receives an AVSpeechUtterance.")
+    func speak(_ attributedString: AttributedString, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((String) -> Void)?) throws {
+        try Self.speak(attributedString, oeVoice: self, synthesizer: synthesizer, willSpeak: willSpeak)
+    }
+    
+    @available(*, deprecated, message: "Use speak(_:oeVoice:synthesizer:force:willSpeak:) with a willSpeak closure that receives an AVSpeechUtterance.")
+    static func speak(_ attributedString: AttributedString, oeVoice: OEVoice = .default, synthesizer: AVSpeechSynthesizerIPA, force: Bool = false, willSpeak: ((String) -> Void)?) throws {
+        try speak(attributedString, oeVoice: oeVoice, synthesizer: synthesizer, force: force) { willSpeak?($0.speechString) }
+    }
 }
 
 public extension OEVoice {
-    func speak(_ mutableAttributedString: NSMutableAttributedString, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((String) -> Void)? = nil) throws {
+    func speak(_ mutableAttributedString: NSMutableAttributedString, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((AVSpeechUtterance) -> Void)? = nil) throws {
         try Self.speak(mutableAttributedString, oeVoice: self, synthesizer: synthesizer, willSpeak: willSpeak)
     }
     
-    static func speak(_ mutableAttributedString: NSMutableAttributedString, oeVoice: OEVoice = .default, synthesizer: AVSpeechSynthesizerIPA, force: Bool = false, willSpeak: ((String) -> Void)? = nil) throws {
+    static func speak(_ mutableAttributedString: NSMutableAttributedString, oeVoice: OEVoice = .default, synthesizer: AVSpeechSynthesizerIPA, force: Bool = false, willSpeak: ((AVSpeechUtterance) -> Void)? = nil) throws {
         guard let voice = oeVoice.voice else {
             throw OEVoiceError.voiceNotFound
         }
@@ -124,5 +144,15 @@ public extension OEVoice {
         }
         
         synthesizer.speak(mutableAttributedString, voice: voice, willSpeak: willSpeak)
+    }
+    
+    @available(*, deprecated, message: "Use speak(_:synthesizer:willSpeak:) with a willSpeak closure that receives an AVSpeechUtterance.")
+    func speak(_ mutableAttributedString: NSMutableAttributedString, synthesizer: AVSpeechSynthesizerIPA, willSpeak: ((String) -> Void)?) throws {
+        try Self.speak(mutableAttributedString, oeVoice: self, synthesizer: synthesizer, willSpeak: willSpeak)
+    }
+    
+    @available(*, deprecated, message: "Use speak(_:oeVoice:synthesizer:force:willSpeak:) with a willSpeak closure that receives an AVSpeechUtterance.")
+    static func speak(_ mutableAttributedString: NSMutableAttributedString, oeVoice: OEVoice = .default, synthesizer: AVSpeechSynthesizerIPA, force: Bool = false, willSpeak: ((String) -> Void)?) throws {
+        try speak(mutableAttributedString, oeVoice: oeVoice, synthesizer: synthesizer, force: force) { willSpeak?($0.speechString) }
     }
 }
